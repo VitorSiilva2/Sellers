@@ -1,6 +1,5 @@
 package org.example.model.dao.impl;
 
-import com.mysql.cj.protocol.Message;
 import org.example.db.DB;
 import org.example.db.DbException;
 import org.example.model.dao.SellerDao;
@@ -65,11 +64,9 @@ public class SellerDaoJDBC implements SellerDao {
             }
             return null;
 
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             throw new DbException(e.getMessage());
-        }
-        finally {
+        } finally {
             DB.closeStatement(st);
             DB.closeResultSet(rs);
         }
